@@ -1,5 +1,5 @@
 import { NavLink, Link, useNavigate } from 'react-router-dom';
-import { LayoutDashboard, Calendar, Settings, LogOut, Zap, LogIn } from 'lucide-react';
+import { LayoutDashboard, Calendar, Settings, LogOut, BookOpen, LogIn } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { cn } from '@/lib/cn';
 
@@ -22,7 +22,7 @@ export default function Sidebar() {
     <aside className="flex flex-col w-60 min-h-screen bg-surface border-r border-border px-4 py-6 shrink-0">
       <Link to="/" className="flex items-center gap-2 mb-10 px-2 group">
         <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-105 transition-transform">
-          <Zap size={16} className="text-white" />
+          <BookOpen size={16} className="text-white" />
         </div>
         <span className="font-heading font-700 text-lg text-text">NoteFlow</span>
       </Link>

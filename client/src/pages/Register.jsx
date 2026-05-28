@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Zap, User, Mail, Lock, AlertCircle, ArrowRight, Shield, Sparkles, Clock } from 'lucide-react';
+import { BookOpen, User, Mail, Lock, AlertCircle, ArrowRight, Shield, Sparkles, Clock } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 
 const perks = [
@@ -47,7 +47,7 @@ export default function Register() {
         <div className="relative z-10 flex flex-col justify-center px-16 py-12">
           <Link to="/" className="flex items-center gap-3 mb-16">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-              <Zap size={20} className="text-white" />
+              <BookOpen size={20} className="text-white" />
             </div>
             <span className="font-heading font-800 text-xl text-text">NoteFlow</span>
           </Link>
@@ -93,7 +93,7 @@ export default function Register() {
         >
           <div className="flex items-center gap-2 mb-8 lg:hidden">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-              <Zap size={20} className="text-white" />
+              <BookOpen size={20} className="text-white" />
             </div>
             <span className="font-heading font-800 text-xl text-text">NoteFlow</span>
           </div>

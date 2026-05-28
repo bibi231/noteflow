@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion';
 import {
-  Zap, Sparkles, Brain, ListChecks, FileText, ChevronRight, Check,
+  BookOpen, Sparkles, Brain, ListChecks, FileText, ChevronRight, Check,
   ArrowRight, Star, Quote, Play, Shield, Clock, Users, BarChart3,
   Menu, X, MousePointer2, Layers, Target, Workflow
 } from 'lucide-react';
@@ -89,7 +89,7 @@ function Navbar() {
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2.5">
           <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-            <Zap size={16} className="text-white" />
+            <BookOpen size={16} className="text-white" />
           </div>
           <span className="font-heading font-700 text-lg text-text">NoteFlow</span>
         </Link>
@@ -597,7 +597,7 @@ function FinalCTA() {
       <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
         <Reveal>
           <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mx-auto mb-8">
-            <Zap size={28} className="text-white" />
+            <BookOpen size={28} className="text-white" />
           </div>
           <h2 className="font-heading font-800 text-3xl md:text-5xl text-text mb-4">
             Ready to <span className="gradient-text">distill</span> your meetings?
@@ -628,7 +628,7 @@ function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2">
             <div className="w-7 h-7 rounded-md bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-              <Zap size={14} className="text-white" />
+              <BookOpen size={14} className="text-white" />
             </div>
             <span className="font-heading font-700 text-sm text-text">NoteFlow</span>
           </div>

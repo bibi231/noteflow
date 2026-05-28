@@ -3,3 +3,5 @@ dist/
 .env
 .DS_Store
 *.timestamp-*.mjs
+*.docx
+push_changes.sh

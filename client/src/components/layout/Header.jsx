@@ -5,7 +5,7 @@ export default function Header({ title }) {
   const date = new Intl.DateTimeFormat('en-US', { weekday: 'long', month: 'long', day: 'numeric' }).format(now);
 
   return (
-    <header className="flex items-center justify-between px-8 py-5 border-b border-border">
+    <header className="flex items-center justify-between px-4 sm:px-8 py-5 border-b border-border pl-16 lg:pl-8">
       <div>
         {title && <h1 className="font-heading font-700 text-xl text-text">{title}</h1>}
       </div>

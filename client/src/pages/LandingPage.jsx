@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion';
 import {
   BookOpen, Sparkles, Brain, ListChecks, FileText, ChevronRight, Check,
-  ArrowRight, Star, Quote, Play, Shield, Clock, Users, BarChart3,
+  ArrowRight, Star, Quote, Shield, Clock, Users, BarChart3,
   Menu, X, MousePointer2, Layers, Target, Workflow
 } from 'lucide-react';
+import { useAuth } from '@/hooks/useAuth';
 
 /* ─── Animated background orbs ─── */
 function FloatingOrbs() {
@@ -70,6 +71,7 @@ function Reveal({ children, delay = 0, className = '' }) {
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { user } = useAuth();
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
@@ -102,15 +104,26 @@ function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-3">
-          <Link to="/login" className="text-sm text-text-muted hover:text-text transition-colors px-4 py-2">
-            Sign in
-          </Link>
-          <Link to="/register">
-            <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
-              className="btn-primary text-sm flex items-center gap-2">
-              Get Started <ArrowRight size={14} />
-            </motion.button>
-          </Link>
+          {user ? (
+            <Link to="/dashboard">
+              <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
+                className="btn-primary text-sm flex items-center gap-2">
+                Go to Dashboard <ArrowRight size={14} />
+              </motion.button>
+            </Link>
+          ) : (
+            <>
+              <Link to="/login" className="text-sm text-text-muted hover:text-text transition-colors px-4 py-2">
+                Sign in
+              </Link>
+              <Link to="/register">
+                <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
+                  className="btn-primary text-sm flex items-center gap-2">
+                  Get Started <ArrowRight size={14} />
+                </motion.button>
+              </Link>
+            </>
+          )}
         </div>
 
         <button className="md:hidden text-text-muted" onClick={() => setMobileOpen(!mobileOpen)}>
@@ -131,8 +144,14 @@ function Navbar() {
                 className="block text-sm text-text-muted py-2" onClick={() => setMobileOpen(false)}>{item}</a>
             ))}
             <div className="flex gap-3 pt-2">
-              <Link to="/login" className="flex-1 text-center text-sm border border-border rounded-xl py-2.5 text-text-muted">Sign in</Link>
-              <Link to="/register" className="flex-1 btn-primary text-sm text-center py-2.5">Get Started</Link>
+              {user ? (
+                <Link to="/dashboard" className="flex-1 btn-primary text-sm text-center py-2.5" onClick={() => setMobileOpen(false)}>Go to Dashboard</Link>
+              ) : (
+                <>
+                  <Link to="/login" className="flex-1 text-center text-sm border border-border rounded-xl py-2.5 text-text-muted" onClick={() => setMobileOpen(false)}>Sign in</Link>
+                  <Link to="/register" className="flex-1 btn-primary text-sm text-center py-2.5" onClick={() => setMobileOpen(false)}>Get Started</Link>
+                </>
+              )}
             </div>
           </motion.div>
         )}
@@ -209,12 +228,6 @@ function Hero() {
               <Sparkles size={18} /> Start Free — No Card Required
             </motion.button>
           </Link>
-          <button className="flex items-center gap-2 text-text-muted hover:text-text transition-colors text-sm group">
-            <div className="w-10 h-10 rounded-full border border-border flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/5 transition-all">
-              <Play size={14} className="ml-0.5" />
-            </div>
-            Watch Demo
-          </button>
         </motion.div>
 
         {/* Browser mockup */}

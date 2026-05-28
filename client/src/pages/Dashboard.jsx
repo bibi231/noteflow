@@ -77,22 +77,22 @@ export default function Dashboard() {
       <Header title="Dashboard" />
       <PageWrapper>
         {/* Greeting */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pl-10 lg:pl-0">
           <div>
             <motion.h2
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              className="font-heading font-700 text-2xl text-text mb-1"
+              className="font-heading font-700 text-xl sm:text-2xl text-text mb-1"
             >
               {greeting}, {user?.name?.split(' ')[0]}
             </motion.h2>
             <p className="text-text-muted text-sm">Here's what's on your plate today.</p>
           </div>
-          <Link to="/meetings" state={{ openNew: true }}>
+          <Link to="/meetings" state={{ openNew: true }} className="shrink-0">
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              className="btn-primary flex items-center gap-2 text-sm"
+              className="btn-primary flex items-center gap-2 text-sm w-full sm:w-auto justify-center"
             >
               <Plus size={16} /> New Meeting
             </motion.button>
